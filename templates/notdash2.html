@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>StableParameters.com</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{url_for('static', filename='assets/css/main.css')}}" />
+		<noscript><link rel="stylesheet" href="{{url_for('static', filename='assets/css/noscript.css')}}"/></noscript>
+<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+<link rel="apple-touch-icon" sizes="57x57" href="{{url_for('static', filename='images/apple-icon-57x57.png')}}">
+<link rel="apple-touch-icon" sizes="60x60" href="{{url_for('static', filename='images/apple-icon-60x60.png')}}">
+<link rel="apple-touch-icon" sizes="72x72" href="{{url_for('static', filename='images/apple-icon-72x72.png')}}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static', filename='images/apple-icon-76x76.png')}}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{url_for('static', filename='images/apple-icon-114x114.png')}}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{url_for('static', filename='images/apple-icon-120x120.png')}}">
+<link rel="apple-touch-icon" sizes="144x144" href="{{url_for('static', filename='images/apple-icon-144x144.png')}}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{url_for('static', filename='images/apple-icon-152x152.png')}}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='images/apple-icon-180x180.png')}}">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{url_for('static', filename='images/android-icon-192x192.png')}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='images/favicon-32x32.png')}}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{url_for('static', filename='images/favicon-96x96.png')}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='images/favicon-16x16.png')}}">
+<link rel="manifest" href="{{url_for('static', filename='images/manifest.json')}}">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="{{url_for('static', filename='assets/css//ms-icon-144x144.png')}}">
+<meta name="theme-color" content="#ffffff">
+		<style>
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+	background-color: #4696e5;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li btn {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+color:#673ab7;
+}
+
+
+</style>
+	</head>
+	<body class="is-preload">
+<ul>
+  <li><a class="active" href="">Home</a></li>
+  <li><a href="/pdf">Guide</a></li>
+  <li><a href="https://tradingsystems.sellix.io/">Shop</a></li>
+<li><btn onclick="openForm()">Upload</btn></li>
+</ul>		<!-- Header -->
+			<header id="header">
+
+				<div id="chart" class="chart" style=" width: 85%; height: 100%;"></div>
+				<!-- <button class="open-button" onclick="openForm()">Load New File</button>-->
+
+<div class="form-popup" id="myForm">
+    <form method="POST" action="" enctype="multipart/form-data">
+      <p><input type="file" name="file"></p>
+    <button type="submit" class="btn">Load</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+			</header>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2 special">
+				<header class="major">
+					<h2>Contact Us</h2>
+				</header>
+				<ul class="icons major">
+					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeI8SMaeXG54H6TawaJYoxBkpjpDbcYqxGO1bFWrXjIGFwNFQ/viewform?embedded=true" width="500" height="500">Loading...</iframe>
+				</ul>
+			</section>
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<p class="copyright">&copy; </p>
+			</footer>
+
+		<!-- Scripts -->
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7696940116387726"
+     crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var graphs = {{ graphJSON | safe }};
+    Plotly.plot('chart',graphs,{});
+</script>
+			<script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/jquery.scrolly.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/browser.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/util.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
+
+	</body>
+</html>
